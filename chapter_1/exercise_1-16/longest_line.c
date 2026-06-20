@@ -19,7 +19,7 @@ int main(void) {
     }
 
     if (max_len > 0) {
-        printf("The longest string with a length of %d is \"%s\"\n", max_len, longest_line);
+        printf("The longest string with a length of %d is : %s\n", max_len, longest_line);
     }
 
     return 0;
