@@ -11,13 +11,13 @@ int main(void) {
   state = OUT;
 
   while ((c = getchar()) != EOF) {
-      if (c == ' ' || c == '\t' || c == '\n') {
-          state = OUT;
-      }
-      else if (state == OUT) {
-          ++word_count;
-          state = IN;
-      }
+    if (c == ' ' || c == '\t' || c == '\n') {
+      state = OUT;
+    }
+    else if (state == OUT) {
+      ++word_count;
+      state = IN;
+    }
   }
 
   printf("\nNumber of words: %d\n", word_count);

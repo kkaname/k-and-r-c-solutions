@@ -6,32 +6,32 @@
 int getLine(char line[]);
 
 int main(void) {
-    int c, line_len;
-    char  line[MAXLEN];
+  int c, line_len;
+  char  line[MAXLEN];
 
-    while ((line_len = getLine(line)) > 0) {
-        if (line_len > LENGTH_LIMIT) {
-            printf("%s\n", line);
-        }
+  while ((line_len = getLine(line)) > 0) {
+    if (line_len > LENGTH_LIMIT) {
+      printf("%s\n", line);
     }
+  }
 
-    return 0;
+  return 0;
 }
 
 int getLine(char line[]) {
-    int c, i, len;
+  int c, i, len;
 
-    i = len = 0;
+  i = len = 0;
 
-    while ((c = getchar()) != EOF && c != '\n') {
-        line[i++] = c;
-        ++len;
-    }
-    if (c == '\n') {
-        line[i++] = '\n';
-        ++len;
-    }
-    c = '\0';
+  while ((c = getchar()) != EOF && c != '\n') {
+    line[i++] = c;
+    ++len;
+  }
+  if (c == '\n') {
+    line[i++] = '\n';
+    ++len;
+  }
+  c = '\0';
 
-    return len;
+  return len;
 }

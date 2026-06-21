@@ -6,42 +6,42 @@ int getLine(char line[]);
 void reverse(char s[], int len);
 
 int main(void) {
-    int len;
-    char line[MAXLEN];
+  int len;
+  char line[MAXLEN];
 
-    while ((len = getLine(line)) > 0) {
-        reverse(line, len);
-        printf("%s\n", line);
-    }
+  while ((len = getLine(line)) > 0) {
+    reverse(line, len);
+    printf("%s\n", line);
+  }
 
-    return 0;
+  return 0;
 }
 
 int getLine(char line[]) {
-    int i, c;
+  int i, c;
 
-    for (i = 0; i < MAXLEN - 1 && (c = getchar()) != EOF && c != '\n'; i++) {
-        line[i] = c;
-    }
+  for (i = 0; i < MAXLEN - 1 && (c = getchar()) != EOF && c != '\n'; i++) {
+    line[i] = c;
+  }
 
-    if (c == '\n') {
-        line[i++] = c;
-    }
-    line[i] = '\0';
+  if (c == '\n') {
+    line[i++] = c;
+  }
+  line[i] = '\0';
 
-    return i;
+  return i;
 }
 
 void reverse(char s[], int len) {
-    int i_front, i_last, temp;
-    i_last = len - 2;
-    // -2 because we want to exclude newline character and null terminator
+  int i_front, i_last, temp;
+  i_last = len - 2;
+  // -2 because we want to exclude newline character and null terminator
 
-    for (i_front = 0; i_front < i_last/2; i_front++) {
-        temp = s[i_last - i_front];
-        s[i_last - i_front] = s[i_front];
-        s[i_front] = temp;
-    }
+  for (i_front = 0; i_front < i_last/2; i_front++) {
+    temp = s[i_last - i_front];
+    s[i_last - i_front] = s[i_front];
+    s[i_front] = temp;
+  }
 
-    return;
+  return;
 }
