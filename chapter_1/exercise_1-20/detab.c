@@ -19,7 +19,7 @@ int main(void) {
     else {
       putchar(c);
         ++current_col;
-        if (c == '\n'){
+        if (c == '\n') {
           current_col = 0;
         }
     }
