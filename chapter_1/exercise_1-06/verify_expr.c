@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 int main(void) {
-    printf("Expression getchar() != EOF gives: %d.\n", getchar() != EOF);
+  printf("Expression getchar() != EOF gives: %d.\n", getchar() != EOF);
 
-    return 0;
+  return 0;
 }
-
