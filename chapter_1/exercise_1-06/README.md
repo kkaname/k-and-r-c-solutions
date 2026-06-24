@@ -20,5 +20,8 @@ gcc -o verify_expr verify_expr.c
 ### Input:
 ```
 5
+```
+### Output:
+```
 Expression getchar() != EOF gives: 1.
 ```
