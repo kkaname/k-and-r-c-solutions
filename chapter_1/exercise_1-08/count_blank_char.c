@@ -17,28 +17,12 @@ int main(void) {
         break;
     }
   }
-  /*
-   * The reason I have prefered switch statement is that
-   * it is faster then if - else if ladder and better readability.
-   *
-   * You can also use if-else if ladder as follows:
-   *
-   * while ((c = getchar()) != EOF) {
-   *   if (c == '\n') {
-   *       ++num_newline;
-   *   }
-   *   else if (c == '\t') {
-   *       ++num_tab;
-   *   }
-   *   else if (c == ' ') {
-   *       ++num_blank;
-   *   }
-   * }
-   */
+  // The reason I have prefered switch statement is that it may or may not be faster in some cases and for better readability.
 
-  printf("blanks  :   %d\n", num_blank);
-  printf("tabs    :   %d\n", num_tab);
-  printf("newlines:   %d\n", num_newline);
+  putchar('\n');
+  printf("%-8s: %d\n", "Blanks", num_blank);
+  printf("%-8s: %d\n", "Tabs", num_tab);
+  printf("%-8s: %d\n", "Newlines", num_newline);
 
   return 0;
 }
