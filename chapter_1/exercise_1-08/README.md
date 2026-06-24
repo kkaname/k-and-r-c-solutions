@@ -22,6 +22,9 @@ gcc -o count_blank_char count_blank_char.c
 hello world
 how are you
 
+```
+### Output:
+```
 Blanks  : 3
 Tabs    : 0
 Newlines: 2
