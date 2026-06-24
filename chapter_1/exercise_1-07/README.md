@@ -17,7 +17,6 @@ gcc -o value_eof value_eof.c
 ```
 
 ## Expected Output:
-### Input:
 ```
 Value of EOF: -1.
 ```
