@@ -17,7 +17,6 @@ gcc -o printf printf.c
 ```
 
 ## Expected Output:
-### Input:
 ```
 printf.c: In function ‘main’:
 printf.c:4:26: warning: unknown escape sequence: ‘\c’
