@@ -17,7 +17,6 @@ gcc -o fahr_cels fahr_cels.c
 ```
 
 ## Expected Output:
-### Input:
 ```
 Fahrenheit    Celsius
 ---------------------
