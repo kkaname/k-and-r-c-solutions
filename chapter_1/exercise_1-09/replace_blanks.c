@@ -3,6 +3,7 @@
 int main(void) {
   int c, last_c;
   last_c = EOF;
+  // last_c is initialized to EOF to make it clear that there is no previous character yet
 
   while ((c = getchar()) != EOF) {
     if (c != ' ' || last_c != ' ') {
