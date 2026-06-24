@@ -17,7 +17,6 @@ gcc -o reverse_temp_table reverse_temp_table.c
 ```
 
 ## Expected Output:
-### Input:
 ```
 Fahrenheit    Celsius
 ---------------------
