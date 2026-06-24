@@ -26,30 +26,7 @@ int main(void) {
         break;
       }
   }
-  /*
-   * The reason I have prefered switch statement is that
-   * it is faster then if - else if ladder and better readability.
-   *
-   * -> alternative way using if - if else ladder:
-   *
-   * while ((c = getchar()) != EOF) {
-   *   if (c == '\t') {
-   *       putchar('\\');
-   *       putchar('t');
-   *   }
-   *   else if (c == '\\') {
-   *       putchar('\\');
-   *       putchar('\\');
-   *   }
-   *   else if (c == '\b') {
-   *       putchar('\\');
-   *       putchar('b');
-   *   }
-   *   else {
-   *       putchar(c);
-   *   }
-   *}
-   */
+  // The reason I have prefered switch statement is that it cleaner and hase better readability.
 
   return 0;
 }
