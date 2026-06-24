@@ -17,7 +17,6 @@ gcc -o main main.c
 ```
 
 ## Expected Output:
-### Input:
 ```
 Hello World!
 ```
