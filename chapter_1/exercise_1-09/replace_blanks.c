@@ -2,10 +2,10 @@
 
 int main(void) {
   int c, last_c;
-  last_c = '\0';
+  last_c = EOF;
 
   while ((c = getchar()) != EOF) {
-    if (!(c == ' ' && last_c == ' ')) {
+    if (c != ' ' || last_c != ' ') {
       putchar(c);
     }
     last_c = c; // saves current character to detect consecutive spaces
