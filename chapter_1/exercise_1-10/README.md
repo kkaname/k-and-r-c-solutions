@@ -19,7 +19,7 @@ gcc -o replace replace.c
 ## Expected Output:
 ### Input:
 ```
-hello world	how are you
+hello world    how are you
 ```
 ### Output:
 ```
