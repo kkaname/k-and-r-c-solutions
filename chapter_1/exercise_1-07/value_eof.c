@@ -1,9 +1,9 @@
 #include <stdio.h>
-// EOF if defined in stdio.h
+// EOF is defined in stdio.h
 
 int main(void) {
   printf("Value of EOF: %d.\n", EOF);
-  // EOF is system/compiler dependent, but usually is -1.
+  // EOF is system/compiler dependent as its always negative integer, but usually is -1.
 
   return 0;
 }
