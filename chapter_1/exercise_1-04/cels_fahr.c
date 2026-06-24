@@ -1,23 +1,23 @@
 #include <stdio.h>
 
+#define SEPARATOR "-----------------------"
+
 int main(void) {
-  float fahr, celsius;
-  int lower, upper, step;
+  float fahr;
+  int celsius;
+  const int lower = 0;
+  const int upper = 200;
+  const int step = 10;
 
-  lower = 0;
-  upper = 200;
-  step = 10;
+  printf("%6s %15s\n", "Celsius", "Fahrenheit");
+  printf(SEPARATOR "\n");
 
-  printf("Celsius\t\tFahrenheit\n");
-  printf("-----------------------\n");
-
-  celsius = lower;
-  while (celsius <= upper) {
+  for (celsius = lower; celsius <= upper; celsius += step) {
     fahr = (9.0/5.0) * celsius + 32;
-    printf("%6.2f\t\t%6.2f\n", celsius, fahr);
-    celsius = celsius + step;
+    printf("%7d %15.2f\n", celsius, fahr);
   }
-  printf("-----------------------\n");
+
+  printf(SEPARATOR "\n");
 
   return 0;
 }
