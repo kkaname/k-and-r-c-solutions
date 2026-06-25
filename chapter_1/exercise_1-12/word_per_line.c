@@ -16,16 +16,13 @@ int main(void) {
       }
     }
     else {
-      state = IN;
       putchar(c);
+      state = IN;
     }
   }
   if (state == IN) {
     putchar('\n');
-  } // if there is a word that doesn't end with ' ', '\t'
-  /*
-   * Note: In the last word, punctuation is treated as a part of the word.
-   */
+  } // handle the final word if input ends without trailing whitespace.
 
   return 0;
 }
