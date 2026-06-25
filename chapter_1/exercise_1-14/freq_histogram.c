@@ -1,61 +1,46 @@
 #include <stdio.h>
 
-#define LOWERCASE_COUNT 26 //26 alphabets from a to z
-#define UPPERCASE_COUNT 26 //26 alphabets from a to z
-#define DIGIT_COUNT 10 //10 decimal digit
-#define OTHERS_COUNT 1
+#define CHARSET_SIZE 256
+#define SEPARATOR "-------------------------\n"
 
 void print_histogram(int freq[]);
 
 int main(void) {
-  int c, freq[LOWERCASE_COUNT + UPPERCASE_COUNT + DIGIT_COUNT + OTHERS_COUNT];
-  int i;
-
-  for (i = 0; i < (LOWERCASE_COUNT + UPPERCASE_COUNT + DIGIT_COUNT + OTHERS_COUNT); i++) {
-    freq[i] = 0;
-  }
+  int freq[CHARSET_SIZE] = {0};
+  int c;
 
   while ((c = getchar()) != EOF) {
-    if (c >= 'a' && c <= 'z') {
-      ++freq[c - 97];
-    }
-    else if (c >= 'A' && c <= 'Z'){
-      ++freq[LOWERCASE_COUNT + c - 65];
-    }
-    else if (c >= '0' && c <= '9') {
-      ++freq[LOWERCASE_COUNT + UPPERCASE_COUNT + c - '0'];
-    }
-    else {
-      ++freq[LOWERCASE_COUNT + UPPERCASE_COUNT + DIGIT_COUNT];
-    }
+    ++freq[c];
   }
 
-  // Now we print the histogram
   print_histogram(freq);
 
   return 0;
 }
 
 void print_histogram(int freq[]) {
-  printf("Word Frequency Histogram:\n");
-  printf("-------------------------\n");
-  for (int i = 0; i < (LOWERCASE_COUNT + UPPERCASE_COUNT + DIGIT_COUNT + OTHERS_COUNT); i++) {
+  int i, j;
+
+  printf("Character Frequency Histogram:\n" SEPARATOR);
+
+  for (i = 0; i < CHARSET_SIZE; i++) {
     if (freq[i] > 0) {
-      if (i < LOWERCASE_COUNT) {
-        printf("%c: ", 'a' + i);
-      }
-      else if (i < LOWERCASE_COUNT + UPPERCASE_COUNT) {
-        printf("%c: ", 'A' + (i - LOWERCASE_COUNT));
-      }
-      else if (i < (LOWERCASE_COUNT + UPPERCASE_COUNT + DIGIT_COUNT)) {
-        printf("%c: ", '0' + (i - LOWERCASE_COUNT - UPPERCASE_COUNT));
+      if (i != '\n' && i != ' ' && i != '\t') {
+        printf("%7c: ", i);
       }
       else {
-        printf("others:");
+        if (i == ' ') {
+          printf("%7s: ", "Blank");
+        }
+        else if (i == '\n') {
+          printf("%7s: ", "Newline");
+        }
+        else {
+          printf("%7s: ", "Tab");
+        }
       }
-
-      for (int j = 0; j < freq[i]; j++) {
-        printf("#");
+      for (j = 0; j < freq[i]; j--) {
+        putchar('#');
       }
       putchar('\n');
     }
