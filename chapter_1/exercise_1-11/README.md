@@ -1,4 +1,4 @@
-# Exercise 1.11: Hello WOrld
+# Exercise 1.11: Word Count
 
 Solution to Exercise 1.11 from *The C Programming Language* (K&R).
 
