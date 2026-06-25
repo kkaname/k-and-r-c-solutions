@@ -1,25 +1,25 @@
 #include <stdio.h>
 
-#define LOWER 0
-#define UPPER 300
-#define STEP 20
+#define SEPARATOR "---------------------\n"
 
-void fahr_to_celsius(float fahr) {
-  float celsius;
-  celsius = (5.0/9.0) * (fahr - 32);
-  printf("%3.0f\t\t%.2f\n", fahr, celsius);
-  return;
+float fahr_to_celsius(int fahr) {
+  return (5.0/9.0) * (fahr - 32);
 }
 
 int main(void) {
-  float fahr;
+  int fahr;
 
-  printf("Fahrenheit\tCelsius\n-------------------------\n");
-  fahr = LOWER;
-  while (fahr <= UPPER) {
-      fahr_to_celsius(fahr);
-      fahr += STEP;
+  const int lower = 0;
+  const int upper = 300;
+  const int step = 20;
+
+  printf("%10s %10s\n", "Fahrenheit", "Celsius");
+  printf(SEPARATOR);
+
+  for (fahr = lower; fahr <= upper; fahr += step) {
+    printf("%10d %10.2f\n", fahr, fahr_to_celsius(fahr));
   }
+  printf(SEPARATOR);
 
   return 0;
 }
