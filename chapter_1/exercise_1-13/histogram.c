@@ -1,56 +1,57 @@
 #include<stdio.h>
 
-#define BUFFER 1000
+#define MAX_WORD_LENGTH 1000
+#define SEPARATOR "---------------------\n"
 
 void print_horizontal_histogram(int histogram[], int histogram_length);
 void print_vertical_histogram(int histogram[], int histogram_length, int max_word_count);
 
 int main(void) {
-  int i, c, histogram[BUFFER];
+  int i, c, histogram[MAX_WORD_LENGTH + 1];
+  // MAX_WORD_LENGTH + 1 cause we will ignore 0 index and take literal index as per word length
   int word_length, histogram_length, max_word_count;
 
   word_length = histogram_length = max_word_count = 0;
 
-  for (i = 0; i < BUFFER; i++) {
+  for (i = 0; i <= MAX_WORD_LENGTH; i++) {
     histogram[i] = 0;
   }
 
-  while ((c = getchar()) != EOF && word_length < BUFFER) {
+  while ((c = getchar()) != EOF && word_length < MAX_WORD_LENGTH) {
     if (c == ' ' || c == '\t' || c == '\n') {
       if (word_length > 0) {
-        ++histogram[word_length - 1];
+        ++histogram[word_length];
 
         if (histogram_length < word_length) {
           histogram_length = word_length;
         }
 
-        if (max_word_count < histogram[word_length - 1]) {
-          max_word_count = histogram[word_length - 1];
+        if (max_word_count < histogram[word_length]) {
+          max_word_count = histogram[word_length];
         }
 
         word_length = 0;
       }
     }
     else {
-      if (word_length < BUFFER) {
+      if (word_length < MAX_WORD_LENGTH) {
         ++word_length;
       }
     }
   }
   if (word_length > 0) {
-    ++histogram[word_length - 1];
+    ++histogram[word_length];
 
     if (histogram_length < word_length) {
       histogram_length = word_length;
     }
 
-    if (max_word_count < histogram[word_length - 1]) {
-      max_word_count = histogram[word_length - 1];
+    if (max_word_count < histogram[word_length]) {
+      max_word_count = histogram[word_length];
     }
   }
   putchar('\n');
 
-  // now we call function to print horizontal and vertical histograms
   print_horizontal_histogram(histogram, histogram_length);
   print_vertical_histogram(histogram, histogram_length, max_word_count);
 
@@ -58,56 +59,45 @@ int main(void) {
 }
 
 void print_horizontal_histogram(int histogram[], int histogram_length) {
-  int line_index, column_index;
+  int row, col;
 
-  printf("Horizontal Histogram\n---------------------\n");
-  column_index = 0;
+  printf("Horizontal Histogram\n" SEPARATOR);
+  col = 1;
 
-  while (column_index < histogram_length) {
-    printf("%3d:\t", column_index + 1);
-    for (line_index = 0; line_index < histogram[column_index]; line_index++) {
-      printf("#");
+  while (col <= histogram_length) {
+    printf("%3d:\t", col);
+    for (row = 0; row < histogram[col]; row++) {
+      putchar('#');
     }
-    printf("\n");
-    ++column_index;
+    putchar('\n');
+    ++col;
   }
-  putchar('\n');
+  printf(SEPARATOR);
 }
 
 void print_vertical_histogram(int histogram[], int histogram_length, int max_word_count) {
-  int line_index, column_index;
+  int col, row;
 
-  printf("Vertical Histogram\n-------------------\n");
-  for (line_index = max_word_count; line_index > 0; line_index--) {
-    column_index = 0;
-    while (column_index < histogram_length) {
-      if (line_index == 0) {
-        printf("%3d", column_index + 1);
+  printf("Vertical Histogram\n" SEPARATOR);
+
+  for (col = max_word_count; col > 0; col--) {
+    row = 1;
+    while (row <= histogram_length) {
+      if (histogram[row] >= col) {
+        printf("%3s", "#");
       }
-
-      else if (histogram[column_index] >= line_index) {
-        printf("  #");
-      }
-
       else {
-        printf("   ");
+        printf("%3s", " ");
       }
-
-      column_index++;
+      row++;
     }
-    printf("\n");
-
-    if ((line_index - 1) == 0) {
-      column_index = 0;
-      while (column_index < histogram_length) {
-         printf("%3d", column_index + 1);
-         column_index++;
-      }
-      putchar('\n');
-      for (int i = 0; i < histogram_length; i++) {
-        printf("---");
-      }
-      putchar('\n');
-    }
+    putchar('\n');
   }
+
+  row = 1;
+  while (row <= histogram_length) {
+    printf("%3d", row);
+    ++row;
+  }
+  printf("\n" SEPARATOR);
 }
