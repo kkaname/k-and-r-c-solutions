@@ -1,4 +1,4 @@
-# Exercise 1.15: Hello WOrld
+# Exercise 1.15: Temperature Conversion Function
 
 Solution to Exercise 1.15 from *The C Programming Language* (K&R).
 
