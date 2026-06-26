@@ -1,4 +1,4 @@
-# Exercise 1.13: Hello WOrld
+# Exercise 1.13: Histogram of Word Length
 
 Solution to Exercise 1.13 from *The C Programming Language* (K&R).
 
