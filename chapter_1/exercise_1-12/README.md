@@ -1,4 +1,4 @@
-# Exercise 1.12: Hello WOrld
+# Exercise 1.12: One Word Per Line
 
 Solution to Exercise 1.12 from *The C Programming Language* (K&R).
 
