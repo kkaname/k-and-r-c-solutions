@@ -39,7 +39,7 @@ void print_histogram(int freq[]) {
           printf("%7s: ", "Tab");
         }
       }
-      for (j = 0; j < freq[i]; j--) {
+      for (j = 0; j < freq[i]; j++) {
         putchar('#');
       }
       putchar('\n');
