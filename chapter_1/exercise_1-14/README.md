@@ -1,5 +1,4 @@
-# E
-xercise 1.14: Hello WOrld
+# Exercise 1.14: Histogram of Character Frequency
 
 Solution to Exercise 1.14 from *The C Programming Language* (K&R).
 
