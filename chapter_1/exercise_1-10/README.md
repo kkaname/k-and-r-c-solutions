@@ -1,8 +1,8 @@
-# Exercise 1.10: Hello WOrld
+# Exercise 1.10: Replace Escape Sequence
 
 Solution to Exercise 1.10 from *The C Programming Language* (K&R).
 
-**Question:** 
+**Question:**  Write a program to copy its input to its output, replacing each tab by \t, each backspace by \b, and each backslash by \\. This makes tabs and backspaces visible in an unambiguous way. 
 
 ## Build & Run
 
