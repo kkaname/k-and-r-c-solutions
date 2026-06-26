@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-#define MAXLEN 1000
+#define MAX_LEN 1000
 #define LENGTH_LIMIT 80
 
-int getLine(char line[]);
+int getLine(char line[], int max_len);
 
 int main(void) {
-  int c, line_len;
-  char  line[MAXLEN];
+  int line_len;
+  char  line[MAX_LEN];
 
-  while ((line_len = getLine(line)) > 0) {
+  while ((line_len = getLine(line, MAX_LEN)) > 0) {
     if (line_len > LENGTH_LIMIT) {
       printf("%s\n", line);
     }
@@ -18,12 +18,11 @@ int main(void) {
   return 0;
 }
 
-int getLine(char line[]) {
+int getLine(char line[], int max_len) {
   int c, i, len;
-
   i = len = 0;
 
-  while ((c = getchar()) != EOF && c != '\n') {
+  while (i < max_len - 1 && (c = getchar()) != EOF && c != '\n') {
     line[i++] = c;
     ++len;
   }
@@ -31,7 +30,12 @@ int getLine(char line[]) {
     line[i++] = '\n';
     ++len;
   }
-  c = '\0';
+
+  while (c != EOF && c != '\n') {
+    len++;
+    c = getchar();
+  }
+  line[i] = '\0';
 
   return len;
 }
