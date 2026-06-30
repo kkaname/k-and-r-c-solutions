@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-#define MAXLEN 1000
+#define MAX_LEN 1000
 
-int getLine(char line[]);
+int getLine(char line[], int max_len);
 void remove_trailing_blanks(char line[], int len);
 
 int main(void) {
   int len;
-  char line[MAXLEN];
+  char line[MAX_LEN];
 
-  while ((len = getLine(line)) > 0) {
+  while ((len = getLine(line, MAX_LEN)) > 0) {
     remove_trailing_blanks(line, len);
     if (line[0] != '\0') {
       printf("%s\n", line);
@@ -19,39 +19,38 @@ int main(void) {
   return 0;
 }
 
-int getLine(char line[]) {
+int getLine(char line[], int max_len) {
   int c, i;
 
-  for (i = 0; i < MAXLEN - 1 && (c = getchar()) != EOF && c != '\n'; i++) {
+  for (i = 0; i < max_len - 1 && (c = getchar()) != EOF && c != '\n'; i++) {
     line[i] = c;
   }
-
   if (c == '\n') {
     line[i++] = c;
   }
-
   line[i] = '\0';
+
+  while (c != EOF && c != '\n') {
+    c = getchar();
+  }
 
   return i;
 }
 
-/* void remove_trailing_blanks(char line[], int len) {
-    for (int i = 2; (line[i - 1] != '\0' || line[i - 1] != '\t') && (line[i] == '\0' || line[i] == '\t'); i++) {
-      line[i] = '\n';
-      line[i + 1] = '\0';
-    }
-    return;
-  } */
-
 void remove_trailing_blanks(char line[], int len) {
-  int i;
-  for (i = len - 1; i >= 0 && (line[i] == ' ' || line[i] == '\t'); i--)
-    ;
-  if (i < 0) {
-    line[0] = '\0';
+  int i = len - 1;
+  int has_newline = 0;
+
+  // to consider newline and trim spaces before it, if any
+  if ( i >= 0 && line[i] == '\n') {
+    has_newline = 1;
+    --i;
+  }
+  while (i >= 0 && (line[i] == ' ' || line[i] == '\t')) {
+    --i;
   }
 
-  if (line[len - 1] == '\n') {
+  if (has_newline) {
     line[i + 1] = '\n';
     line[i + 2] = '\0';
   }
