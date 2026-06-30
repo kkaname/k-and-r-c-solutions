@@ -1,4 +1,4 @@
-# Exercise 1.16: Hello WOrld
+# Exercise 1.16: Print longest line
 
 Solution to Exercise 1.16 from *The C Programming Language* (K&R).
 
