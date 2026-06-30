@@ -29,19 +29,25 @@ int getLine(char line[]) {
   }
   line[i] = '\0';
 
+  while (c != EOF && c != '\n') {
+    c = getchar();
+  }
+
   return i;
 }
 
 void reverse(char s[], int len) {
-  int i_front, i_last, temp;
-  i_last = len - 2;
-  // -2 because we want to exclude newline character and null terminator
+  int left, right;
+  right = len - 1; // index of last character in string
+  char temp;
 
-  for (i_front = 0; i_front < i_last/2; i_front++) {
-    temp = s[i_last - i_front];
-    s[i_last - i_front] = s[i_front];
-    s[i_front] = temp;
+  if (right > 0 && s[right] == '\n') {
+    --right; // skip the newline character
   }
 
-  return;
+  for (left = 0; left < right; left++, right--) {
+    temp = s[right];
+    s[right] = s[left];
+    s[left] = temp;
+  }
 }
