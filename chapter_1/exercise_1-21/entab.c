@@ -9,31 +9,39 @@
 
 int main(void) {
   int c;
-  unsigned int line_pos, no_spaces;
-  line_pos = no_spaces = 0;
+  int column, space_count;
+  column = space_count = 0;
 
   while ((c = getchar()) != EOF) {
-    ++line_pos;
-
     if (c == ' ') {
-      ++no_spaces;
+      ++space_count;
 
-      if ((line_pos % TAB_WIDTH) == 0 && no_spaces > 1) {
+      if (((column + space_count) % TAB_WIDTH) == 0) {
         putchar('\t');
-        no_spaces = 0;
+        column += space_count;
+        space_count = 0;
       }
     }
     else {
-      while (no_spaces) {
-        putchar(' ');
-        --no_spaces;
+      if (space_count > 0) {
+        while (space_count > 0) {
+          putchar(' ');
+          --space_count;
+          ++column;
+        }
       }
-
-      if (c == '\n') {
-        line_pos = 0;
-      }
-
       putchar(c);
+      ++column;
+      if (c == '\n') {
+        column = 0;
+      }
+    }
+  }
+  if (space_count > 0) {
+    while (space_count > 0) {
+      putchar(' ');
+      --space_count;
+      ++column;
     }
   }
 
