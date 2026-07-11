@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "stack.h"
 
 #define MAXLEN 1000
 
