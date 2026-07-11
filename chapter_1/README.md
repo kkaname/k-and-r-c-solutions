@@ -31,11 +31,11 @@ This directory contains solutions to the exercises from **Chapter 1** of *The C 
 | 1.17 | Lines Longer Than 80 Characters | Filtering | ✅ Complete |
 | 1.18 | Remove Trailing Blanks | String Manipulation | ✅ Complete |
 | 1.19 | Reverse String | String Reversal | ✅ Complete |
-| 1.20 | Detab | Tab Processing | ✅ Complete |
-| 1.21 | Entab | Whitespace Processing | ✅ Complete |
-| 1.22 | Fold Long Lines | Line Wrapping | ✅ Complete |
-| 1.23 | Remove Comments | Parsing | ✅ Complete |
-| 1.24 | Syntax Checker | Error Detection | ✅ Complete |
+| 1.20 | Detab | Tab Processing | incomple |
+| 1.21 | Entab | Whitespace Processing | incomplete |
+| 1.22 | Fold Long Lines | Line Wrapping | incomplete |
+| 1.23 | Remove Comments | Parsing | incomplete |
+| 1.24 | Syntax Checker | Error Detection | incomplete |
 
 ---
 
